@@ -17,7 +17,7 @@ public class GlobalErrorAdvise {
 	@Autowired
 	MessageSource messageSource;
 	
-	@ExceptionHandler(DataValidationException.class)
+	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public ResponseEntity<ErrorResponse> handleExceptions(Exception ex) {
 		ErrorResponse response =  new ErrorResponse("unexpected.exception","ER006",messageSource.getMessage("unexpected.exception", null, Locale.US));
